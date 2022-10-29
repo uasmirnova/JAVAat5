@@ -2,9 +2,15 @@ package ru.netology.testinfo;
 
 import com.github.javafaker.Faker;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class DataGenerator {
+
+    public static String meetingDate(int days) {
+        return LocalDate.now().plusDays(days).format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
+    }
 
     public static Info user(String locale) {
         return new Info(userCity(locale), userName(locale), userPhone(locale));
